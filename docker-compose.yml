@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+  app-nginx:
+    container_name: app-nginx
+    build: ./docker/nginx
+    volumes:
+      - .:/var/www/html
+    ports:
+      - 8088:80
+
+  app-php:
+    container_name: app-php
+    build: ./docker/php
+    ports:
+      - 9000:9000
+    volumes:
+      - .:/var/www/html
+      - ./docker/php/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+
+  app-mysql:
+    container_name: app-mysql
+    build: docker/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: app_db
+    volumes:
+      - ./docker/mysql/data:/var/lib/mysql
+    ports:
+      - 3306:3306

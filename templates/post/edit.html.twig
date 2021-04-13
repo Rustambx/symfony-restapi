@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Post{% endblock %}
+
+{% block body %}
+    <h1>Edit Post</h1>
+
+    {{ include('post/_form.html.twig', {'button_label': 'Update'}) }}
+    {% if is_granted('ROLE_ADMIN') %}
+        <td>{{ include('post/_delete_form.html.twig') }}</td>
+    {% endif %}
+
+    <a href="{{ path('post') }}" class="btn btn-info">Back to list</a>
+{% endblock %}

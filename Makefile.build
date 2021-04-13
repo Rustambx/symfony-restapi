@@ -1,0 +1,22 @@
+COMPOSER_OPTIONS =
+ifeq ("$(ENV)", "prod")
+COMPOSER_OPTIONS = --no-dev
+endif
+
+test-functional:
+	@echo "====================="
+	@echo "Running test functional"
+	@echo "====================="
+	./vendor/bin/simple-phpunit
+
+test-cypress:
+	@echo "====================="
+	@echo "Running test static"
+	@echo "====================="
+	./node_modules/.bin/cypress open
+
+load-fixtures:
+	@echo "====================="
+	@echo "Load fixtures"
+	@echo "====================="
+	php bin/console doctrine:database:import tests/fixtures/data.sql

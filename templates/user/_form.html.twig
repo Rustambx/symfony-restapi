@@ -1,0 +1,7 @@
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    {{ form_label(form.email, 'Email')  }}
+    {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'data-test' : 'email'}}) }}
+    {{ form_label(form.roles, 'Roles')  }}
+    {{ form_widget(form.roles, { 'attr': {'data-test' : 'roles'}}) }}
+    <button class="btn btn-success" data-test="save">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

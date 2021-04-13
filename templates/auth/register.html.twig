@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register Form{% endblock %}
+
+{% block body %}
+    <h1 class="h3 mb-3 font-weight-normal">Register</h1>
+    {{ form_start(registrationForm) }}
+        {{ form_label(registrationForm.email, 'Email')  }}
+        {{ form_widget(registrationForm.email, { 'attr': {'class': 'form-control', 'data-test' : 'email'}}) }}
+        {{ form_label(registrationForm.password, 'Password')  }}
+        {{ form_widget(registrationForm.password, { 'attr': {'class': 'form-control', 'data-test' : 'password'}}) }}
+        <button type="submit" data-cy="register" class="btn btn-success" >Register</button>
+    {{ form_end(registrationForm) }}
+{% endblock %}

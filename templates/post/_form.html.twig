@@ -1,0 +1,21 @@
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    {{ form_errors(form) }}
+    {{ form_label(form.title, 'Title')  }}
+    {{ form_widget(form.title, { 'attr': {'class': 'form-control', 'data-test' : 'title'}}) }}
+    {{ form_errors(form.title) }}
+    {{ form_label(form.text, 'Text')  }}
+    {{ form_widget(form.text, { 'attr': {'class': 'form-control', 'data-test' : 'text'} }) }}
+    {{ form_errors(form.text) }}
+    <br>
+    <label for="post_edit_title" class="required">Old image</label>
+    <br>
+    <img src="{{ asset('uploads/post/images/' ~ post.image) }}" alt="">
+    <hr>
+    <input type="hidden" name="old_image" value="{{ post.image }}">
+    {{ form_label(form.image, 'New Image')  }}
+    {{ form_widget(form.image, { 'attr': {'class': 'form-control-file', 'data-test' : 'image'} }) }}
+    {{ form_errors(form.image) }}
+    {{ form_label(form.author, 'Author')  }}
+    {{ form_widget(form.author, { 'attr': {'class': 'form-control', 'data-test' : 'author'} }) }}
+    <button class="btn btn-success" data-test="save">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
