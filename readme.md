@@ -33,4 +33,4 @@ yarn run cypress open
 <br>
 
 ### Документация REST API
-<a href="https://github.com/Rustambx/books-API/blob/master/restapi.md">Документация REST API</a>
+<a href="https://github.com/Rustambx/symfony-restapi/blob/main/restapi.md">Документация REST API</a>
